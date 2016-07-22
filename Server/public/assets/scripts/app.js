@@ -1,30 +1,3 @@
-//d3.select("body")
-//    .append("svg")
-//    .attr("width", 100)
-//    .attr("height", 100)
-//    .append("text")
-//    .text("D3 bitches")
-//    .attr("x", 0)
-//    .attr("y", 25)
-//    .style("fille", "orange")
-//
-//
-//d3.select("body")
-//    .append("svg")
-//    .append("rect")
-//    .attr("width",100)
-//    .attr("height",400)
-//    .style("fill", "blue");
-//
-//d3.select("body")
-//    .append("svg")
-//    .attr("width", 50)
-//    .attr("height", 50)
-//    .append("circle")
-//    .attr("cx",25)
-//    .attr("cy",25)
-//    .attr("r",25)
-//    .attr("fill", "red");
 
 var w = 500;
 var h = 200;
@@ -62,17 +35,11 @@ svg.selectAll("rect")
 //svg.selectAll("rect")
 //    .data(dataSet)
 //    .enter()
-//    .append("rect")
-//    .attr({
-//        x: function(d,i){
-//            return i*(w/dataSet.length);
-//        },
-//        y: function(d){
-//            var x = h/maxH;
-//            return h-d*x;
-//        },
-//        width: function(){return w/dataSet.length-padding},
+//    .append("rect").attr({
+//        x: function(d,i){return i*(w/dataSet.length);},
+//        y: function(d){var x = h/maxH;return h-d*x;},
 //        height: function(d){var x = h/maxH; return d*x},
+//        width: w/dataSet.length,
 //        fill: function(d){return "rgb(100, "+ (d*20)+ ",0)";}
 //
 //    });
