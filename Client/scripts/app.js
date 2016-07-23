@@ -9,7 +9,7 @@ var svg = d3.select("body")
     .attr("height",h);
 
 var maxH = Math.max.apply(Math,dataSet);
-console.log(maxH)
+//console.log(maxH)
 
 //d3 can use d as the data set value as d and i as the index of that one
 svg.selectAll("rect")
