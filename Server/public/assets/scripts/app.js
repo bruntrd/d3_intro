@@ -65,6 +65,25 @@ var labels = svg.selectAll("text")
 
 
 
+
+//create our SVG
+var svg = d3.select("body").append("svg").attr({ width:w, height: h});
+
+
+//add dots
+var dots = svg.selectAll("circle")
+    .data(monthlySales)
+    .enter()
+    .append("circle")
+    .attr({
+        cx: function(d){ return d.month*3; },
+        cy: function(d){ return h-d.sales; },
+        r:  5,
+        "fill": "#666666"
+    });
+
+
+
 //var svg = d3.select("body")
 //    .append("svg")
 //    .attr("width", w)
