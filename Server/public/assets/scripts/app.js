@@ -21,66 +21,58 @@ monthlySales = [
     {"month":100, "sales":130}
 ];
 
-//Function to generate line "path"
-var lineFun = d3.svg.line()
-    .x(function (d) { return d.month*3; })
-    .y(function (d) { return h-d.sales; })
-    .interpolate("linear");
-
-//create our SVG
-var svg = d3.select("body").append("svg").attr({ width:w, height: h});
-
-//build the viz
-var viz = svg.append("path")
-    .attr({
-        d: lineFun(monthlySales),
-        "stroke": "purple",
-        "stroke-width": 2,
-        "fill": "none"
-    });
-
-
-//add labels
-var labels = svg.selectAll("text")
-    .data(monthlySales)
-    .enter()
-    .append("text")
-    //.text(function(d){ return d.sales; } )
-    .text(function(d){ return d.sales; })
-    .attr({
-        x: function(d){ return (d.month*3)-25; },
-        y: function(d){ return h-d.sales; },
-        "font-size": "12px",
-        "font-family": "sans-serif",
-        "fill": "#666666",
-        "text-anchor": "start",
-        "dy": ".35em",
-        "font-weight": function(d,i){
-            if (i===0 ||  i==(monthlySales.length-1)) {
-                return "bold"; }
-            else {
-                return "normal"; }
-        }
-    });
+//var lineFun = d3.svg.line()
+//    .x(function (d) { return d.month*3; })
+//    .y(function (d) { return h-d.sales; })
+//    .interpolate("linear");
+//
+//var svg = d3.select("body").append("svg").attr({ width:w, height: h});
+//
+//var viz = svg.append("path")
+//    .attr({
+//        d: lineFun(monthlySales),
+//        "stroke": "purple",
+//        "stroke-width": 2,
+//        "fill": "none"
+//    });
+//
+//
+//var labels = svg.selectAll("text")
+//    .data(monthlySales)
+//    .enter()
+//    .append("text")
+//    //.text(function(d){ return d.sales; } )
+//    .text(function(d){ return d.sales; })
+//    .attr({
+//        x: function(d){ return (d.month*3)-25; },
+//        y: function(d){ return h-d.sales; },
+//        "font-size": "12px",
+//        "font-family": "sans-serif",
+//        "fill": "#666666",
+//        "text-anchor": "start",
+//        "dy": ".35em",
+//        "font-weight": function(d,i){
+//            if (i===0 ||  i==(monthlySales.length-1)) {
+//                return "bold"; }
+//            else {
+//                return "normal"; }
+//        }
+//    });
 
 
 
 
-//create our SVG
 var svg = d3.select("body").append("svg").attr({ width:w, height: h});
 
 
-//add dots
-//KPI color
+
 function salesKPI (d) {
     if (d>=250) { return "#33CC66"; } else
     if (d<250) { return "#666666"; }
 }
 
-//create our SVG
 var svg = d3.select("body").append("svg").attr({ width:w, height: h});
 
-//add min/max to array
 Array.max = function( array ){
     return Math.max.apply( Math, array );
 };
@@ -89,7 +81,6 @@ Array.min = function( array ){
     return Math.min.apply( Math, array );
 };
 
-//function for showing labels
 function showMinMax(ds, col, val, type){
     var max = d3.max(ds, function(d) { return d[col]; } );
     var min = d3.min(ds, function(d) { return d[col]; } );
@@ -103,7 +94,6 @@ function showMinMax(ds, col, val, type){
     }
 
 }
-//add dots
 var dots = svg.selectAll("circle")
     .data(monthlySales)
     .enter()
@@ -139,7 +129,6 @@ var labels = svg.selectAll("text")
 //var maxH = Math.max.apply(Math,dataSet);
 ////console.log(maxH)
 //
-////d3 can use d as the data set value as d and i as the index of that one
 //svg.selectAll("rect")
 //    .data(dataSet)
 //    .enter()

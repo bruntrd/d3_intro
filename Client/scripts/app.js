@@ -21,43 +21,43 @@ monthlySales = [
     {"month":100, "sales":130}
 ];
 
-var lineFun = d3.svg.line()
-    .x(function (d) { return d.month*3; })
-    .y(function (d) { return h-d.sales; })
-    .interpolate("linear");
-
-var svg = d3.select("body").append("svg").attr({ width:w, height: h});
-
-var viz = svg.append("path")
-    .attr({
-        d: lineFun(monthlySales),
-        "stroke": "purple",
-        "stroke-width": 2,
-        "fill": "none"
-    });
-
-
-var labels = svg.selectAll("text")
-    .data(monthlySales)
-    .enter()
-    .append("text")
-    //.text(function(d){ return d.sales; } )
-    .text(function(d){ return d.sales; })
-    .attr({
-        x: function(d){ return (d.month*3)-25; },
-        y: function(d){ return h-d.sales; },
-        "font-size": "12px",
-        "font-family": "sans-serif",
-        "fill": "#666666",
-        "text-anchor": "start",
-        "dy": ".35em",
-        "font-weight": function(d,i){
-            if (i===0 ||  i==(monthlySales.length-1)) {
-                return "bold"; }
-            else {
-                return "normal"; }
-        }
-    });
+//var lineFun = d3.svg.line()
+//    .x(function (d) { return d.month*3; })
+//    .y(function (d) { return h-d.sales; })
+//    .interpolate("linear");
+//
+//var svg = d3.select("body").append("svg").attr({ width:w, height: h});
+//
+//var viz = svg.append("path")
+//    .attr({
+//        d: lineFun(monthlySales),
+//        "stroke": "purple",
+//        "stroke-width": 2,
+//        "fill": "none"
+//    });
+//
+//
+//var labels = svg.selectAll("text")
+//    .data(monthlySales)
+//    .enter()
+//    .append("text")
+//    //.text(function(d){ return d.sales; } )
+//    .text(function(d){ return d.sales; })
+//    .attr({
+//        x: function(d){ return (d.month*3)-25; },
+//        y: function(d){ return h-d.sales; },
+//        "font-size": "12px",
+//        "font-family": "sans-serif",
+//        "fill": "#666666",
+//        "text-anchor": "start",
+//        "dy": ".35em",
+//        "font-weight": function(d,i){
+//            if (i===0 ||  i==(monthlySales.length-1)) {
+//                return "bold"; }
+//            else {
+//                return "normal"; }
+//        }
+//    });
 
 
 
